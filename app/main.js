@@ -182,7 +182,7 @@ function renderShell() {
   document.documentElement.lang = {en:'en',zh:'zh-CN',ja:'ja'}[lang];
   document.title = tr('title');
   document.querySelector('meta[name=description]').content = tr('subtitle');
-  $('panel-title').textContent = tr('title');
+  $('title-link').textContent = tr('title');
   $('share').setAttribute('aria-label',tr('share'));
   $('share').title = tr('share');
   $('language').setAttribute('aria-label',tr('language'));
