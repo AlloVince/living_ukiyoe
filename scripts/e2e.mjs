@@ -172,7 +172,11 @@ try {
   await page.locator('canvas[data-ready]').waitFor();
   await page.locator('details').filter({has:page.locator('#timeline')}).last().evaluate(x=>x.open=true);
   await page.evaluate(()=>{const stream=document.querySelector('canvas').captureStream(24);const recorder=new MediaRecorder(stream,{mimeType:'video/webm;codecs=vp8',videoBitsPerSecond:2000000});const chunks=[];window.recording=new Promise(resolve=>{recorder.ondataavailable=e=>chunks.push(e.data);recorder.onstop=()=>{stream.getTracks().forEach(t=>t.stop());const reader=new FileReader();reader.onload=()=>resolve(reader.result.split(',')[1]);reader.readAsDataURL(new Blob(chunks,{type:recorder.mimeType}));};});recorder.start();setTimeout(()=>recorder.stop(),32000);});
-  let previous=0,wrapped=false;
+  // Wait for the paper-opening entrance to finish before timing the loop.
+  // CI runners are slower than local hardware; a fixed 32 s window can end
+  // before the 28 s loop has wrapped.
+  await page.waitForFunction(()=>window.__waveLab?.entrance().active===false,{timeout:60000});
+  let previous=Number(await page.locator('#timeline').inputValue()),wrapped=false;
   for(let i=0;i<9;i++){await page.waitForTimeout(3900);const current=Number(await page.locator('#timeline').inputValue());if(current<previous)wrapped=true;previous=current;}
   assert(wrapped,'live playback must cross 28 second loop after the entrance');
   await writeFile(new URL('live-cycle.webm',output),Buffer.from(await page.evaluate(()=>window.recording),'base64'));
