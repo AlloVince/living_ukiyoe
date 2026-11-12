@@ -18,8 +18,10 @@ const versions=[
   ['v1','procedural-3d'],
   ['v2','travelling-crests'],
   ['v3','hand-drawn-2d'],
-  ['v4','print-plus-experiments']
+  ['v4','print-plus-experiments',{speed:4,push:2,lift:2}]
 ];
+const only=process.env.VERSIONS?.split(',').filter(Boolean);
+const selected=only?versions.filter(([id])=>only.includes(id)):versions;
 
 const {server,url}=await serve({port:0,base:'/living_ukiyoe/',quiet:true});
 const browser=await chromium.launch();
@@ -34,10 +36,14 @@ try {
   // defaults instead.
   await page.goto(url);
   await page.locator('canvas[data-ready]').waitFor({timeout:30000});
-  for(const [id,name] of versions) {
+  for(const [id,name,wave] of selected) {
     await page.selectOption('#ctl-version',id);
     await page.waitForFunction(v=>window.__waveLab.version===v,id,{timeout:20000});
     await page.waitForFunction(()=>window.__waveLab?.entrance().active===false,null,{timeout:30000});
+    if(wave) for(const [key,value] of Object.entries(wave)) {
+      const control=key==='speed'?'swell-speed':key==='push'?'swell-push':'swell-lift';
+      await page.locator('#'+control).evaluate((el,v)=>{el.value=String(v);el.dispatchEvent(new Event('input',{bubbles:true}));},value);
+    }
     await page.waitForTimeout(700);
     await page.evaluate(ms=>{
       const stream=document.querySelector('canvas').captureStream(24);
