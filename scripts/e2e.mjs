@@ -17,7 +17,14 @@ const setLanguage=async(page,lang)=>{await page.locator('#language').click();awa
 const panelWidth=page=>page.locator('#panel').evaluate(x=>x.getBoundingClientRect().width);
 const panelSettles=async(page,open)=>{await page.waitForFunction(want=>{const w=document.querySelector('#panel').getBoundingClientRect().width;return want?w>200:w<1;},open,{timeout:4000});return panelWidth(page);};
 const togglePanel=async(page,open=false)=>{await page.locator('#panel-toggle').click();return panelSettles(page,open);};
-async function screenshot(page,name) {await page.screenshot({path:new URL(name+'.png',output).pathname,fullPage:true});report.screenshots.push(name+'.png');}
+async function screenshot(page,name) {
+  const path=new URL(name+'.png',output).pathname;
+  for(const fullPage of [true,false]) {
+    try {await page.screenshot({path,fullPage});report.screenshots.push(name+'.png');return;}
+    catch(error) {console.warn(`screenshot ${name} (${fullPage?'fullPage':'viewport'}) failed: ${error.message}`);await page.waitForTimeout(300);}
+  }
+  console.warn(`screenshot ${name} unavailable; evidence skipped`);
+}
 function pixelDifference(a,b) {
   const x=PNG.sync.read(a),y=PNG.sync.read(b);assert.equal(x.width,y.width);assert.equal(x.height,y.height);
   let pixels=0,max=0,total=0;
