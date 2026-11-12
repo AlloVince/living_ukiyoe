@@ -8,6 +8,6 @@
 
 **体验：**[在线演示 · Cloveread Radio](https://cloveread.com/radio/) · [Wave Lab · 在线调节](https://allovince.github.io/living_ukiyoe/)
 
-制作过程会另写成文章，发布在 Cloveread Stories。
+想了解这个项目背后的故事，可以读这篇文章：[如果浮世绘会动应该是什么样](https://cloveread.com/zh/stories/living-ukiyoe/)。
 
 [作品署名与许可](credits.html) · [MIT 许可](LICENSE)

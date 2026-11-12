@@ -8,6 +8,6 @@
 
 **Explore:** [ライブデモ · Cloveread Radio](https://cloveread.com/radio/) · [Wave Lab · オンラインで調整](https://allovince.github.io/living_ukiyoe/)
 
-制作の裏側は、Cloveread Stories のブログで別途紹介します。
+このプロジェクトの背景をもっと知りたい方は、Cloveread Stories の記事 [What Would Ukiyo-e Look Like in Motion?](https://cloveread.com/stories/living-ukiyoe/) をどうぞ。
 
 [クレジットとライセンス](credits.html) · [MIT License](LICENSE)

@@ -8,6 +8,6 @@ A living interpretation of Hokusai’s *The Great Wave off Kanagawa*. Watch the 
 
 **Explore:** [Live Demo · Cloveread Radio](https://cloveread.com/radio/) · [Wave Lab · Adjust the artwork](https://allovince.github.io/living_ukiyoe/)
 
-The making-of will be shared separately on Cloveread Stories.
+Want the story behind the project? Read [What Would Ukiyo-e Look Like in Motion?](https://cloveread.com/stories/living-ukiyoe/) on Cloveread Stories.
 
 [Credits & licenses](credits.html) · [MIT License](LICENSE)
