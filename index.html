@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A living interpretation of Hokusai’s Great Wave. Adjust the layers and rhythm, then share your scene.">
+  <meta name="theme-color" content="#e9e5d6">
+  <title>Living Ukiyo-e</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./app.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <main id="workspace">
+    <section id="artwork" data-component-id="WaveLab.Artwork" aria-label="Living Ukiyo-e">
+      <img id="fallback" src="./still.png" width="1440" height="925" alt="The Great Wave, three boats and Mount Fuji">
+      <canvas role="img" aria-label="The Great Wave, three boats and Mount Fuji"></canvas>
+      <div id="loading" role="status"></div>
+      <div id="failure" hidden><p id="failure-text" role="status"></p><button id="retry" type="button"></button></div>
+    </section>
+    <button id="panel-toggle" type="button" aria-controls="panel" aria-expanded="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7"/></svg>
+    </button>
+    <aside id="panel" data-component-id="WaveLab.Controls" aria-label="Create">
+      <header id="panel-head" data-component-id="WaveLab.PanelHead">
+        <h1 id="panel-title"></h1>
+        <div class="head-actions">
+          <div class="icon-slot">
+            <button id="share" class="icon" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="share-menu">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 15V4M8 7.5 12 3.5l4 4"/><path d="M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+            </button>
+            <div id="share-menu" class="menu" role="menu" hidden></div>
+          </div>
+          <div class="icon-slot">
+            <button id="language" class="icon" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="language-menu">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.2 3.6 8.5S14.4 18.2 12 20.5c-2.4-2.3-3.6-5.2-3.6-8.5S9.6 5.8 12 3.5Z"/></svg>
+            </button>
+            <div id="language-menu" class="menu" role="menu" hidden>
+              <button type="button" role="menuitemradio" data-lang="en" lang="en">English</button>
+              <button type="button" role="menuitemradio" data-lang="zh" lang="zh-CN">中文</button>
+              <button type="button" role="menuitemradio" data-lang="ja" lang="ja">日本語</button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="quick-actions">
+        <button id="reset" type="button"></button>
+        <button id="play" type="button"></button>
+      </div>
+      <div id="panel-body"></div>
+      <footer id="panel-foot" data-component-id="WaveLab.PanelFoot">
+        <a id="live-demo" href="https://cloveread.com/radio/" target="_blank" rel="noopener noreferrer"></a>
+        <a id="credits-link" href="./credits.html"></a>
+      </footer>
+    </aside>
+  </main>
+  <p id="feedback" role="status" aria-live="polite"></p>
+  <div id="manual-copy" hidden><label for="share-link" id="share-link-label"></label><input id="share-link" readonly type="url"></div>
+  <noscript><p>Living Ukiyo-e needs JavaScript for animation and controls. The still artwork remains available above.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-12",
+  "sourcePage": "https://wp270302.wpx.jp/Hokusai/drawing-process.html",
+  "metObject": "https://www.metmuseum.org/art/collection/search/39799",
+  "metScan": "https://images.metmuseum.org/CRDImages/as/original/DP141042.jpg",
+  "metScanSha256": "b410eeec0473c4e63eef12434a5a7c4613401c6e18670718d7727f36a441495c",
+  "traceSource": {
+    "redistributed": false,
+    "sourcePage": "https://wp270302.wpx.jp/Hokusai/drawing-process.html",
+    "sha256": "82c419defe0293c8b240dd0aecd0438b39a63dd103df999b246462f063d2fb50",
+    "canvas": [
+      2800,
+      1914
+    ],
+    "fillPaths": 31877
+  },
+  "files": [
+    {
+      "path": "assets/generated/boat-far.webp",
+      "sha256": "b2a13e2e3062f7da79d86979901db74bffadc297adeaa0c5458bb68d25d9daf2",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/boat-left.webp",
+      "sha256": "2de8642180f0a863e38d124ca188a7b2aec1a07bdfa303aa66160b7851539938",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/boat-near.webp",
+      "sha256": "7c52ace763def73785af913d923575722fb746ab7995dcda88dbf35d7ffe7258",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/boats.webp",
+      "sha256": "e0057a2fdafc616f18aee8238c08ed86c17d6388a3113e96a42483bdb2b87520",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/far.webp",
+      "sha256": "091e2cce4f99f0b7e9025c71f731b7f6da1e752b70dced5b7967838eb829e2ba",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/fuji.webp",
+      "sha256": "cea255ff47fa6f35e804186c9d3c10962be25affad9ac803f3b36e1fbbbe17ed",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/hero-boat-foam.webp",
+      "sha256": "e244fb044c092ec7c3fd7de1b1b882288e006c084fa012abd8fa71d16f54b61b",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/hero-marks.webp",
+      "sha256": "8ac821006a591ebe397f25d832a4c87f5d29c974577ca207bfdaf50b4a3f7440",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/hero-ribbons-dark.webp",
+      "sha256": "06282c2eba289fec8e23fdb1eba0bbc2196353b55818a0d278697cc732d77392",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/hero-ribbons.webp",
+      "sha256": "e5e4996e3b890691f233601d45bd67107ee2281d958efefeac37067009de1079",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/hero.webp",
+      "sha256": "ea484fac5d54a58d4fd8b88c4dbe4dd2ccf3514865102314677ba51be74f6f9f",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/inscription.webp",
+      "sha256": "3907fb1c6e7029e2105db2f45030c60044b2c44188e2077cb686a7ababab61bf",
+      "rights": "Met Public Domain scan derivative"
+    },
+    {
+      "path": "assets/generated/integrated-motion.json",
+      "sha256": "ce84a8e5522df8f24ee1426906d7c5f6e29de4132de82a87e03a0e0d7fbc02bf",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/join-center-left.webp",
+      "sha256": "b561396ec9f25559e20f2ac01c055ccfa2f152ba9c93c5b91278947f35b0cb42",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/join-center-right.webp",
+      "sha256": "350d52f20a311144db8a07af1ca0054bf6e77e5152bd6b5ae3abf83acfba6750",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/join-hero-center.webp",
+      "sha256": "065260f74008f36b03579857cb618336db0d27419cd5629088f979a758a621ce",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/join-hero-left.webp",
+      "sha256": "c6e2212e53448f07ca5681d66811cf3ed91d00f2e6813260dce1f3ed4f9e4fc9",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/join-left-right.webp",
+      "sha256": "fb0c1b90a42cad5d7b1fff983d123501286f82d243d2a0c5217a0aa6c38babb4",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/join-upper-center.webp",
+      "sha256": "dc3c4f3f421341f20405b27bcf1fe7e4de1eed545b225c8ffa81030df117f85d",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/join-upper-right.webp",
+      "sha256": "016dae964f1abab584e482c8224f86911076fd5a365bfc4d9ffd6679e21ee241",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/lower-center-marks.webp",
+      "sha256": "7e09367723d64fd6c07d2203022029020849e13ea569cabd8b49a5250b244a1e",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/lower-center.webp",
+      "sha256": "d96470f3bbf695c076e3d3b27d4d12d5640878f48316b02511a5dd0a400e739c",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/lower-left-marks.webp",
+      "sha256": "9a600fa3d60e3bd9d4a6fde9937ef1e366489d861b3e1bd5a6186359877edaf8",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/lower-left.webp",
+      "sha256": "496185ddd2710d9776e588ee219802fcb1893f0fe0d5fabc0fbf82df98e44366",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/lower-right.webp",
+      "sha256": "52b9f16db0a7799b28ec90c9059c9a7603326a3d0aab17ecdab1d8188dc265d6",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/mid.webp",
+      "sha256": "5806f5f28f90a2bca6076ddbe79db5c31251c96d5f20ea8870703f8bc28f3182",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/near.webp",
+      "sha256": "df3e81e1f2048a702d8a72e70eec91dc639b4852da9ad227120634acd3f2b7de",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/plate-windows.json",
+      "sha256": "6b43b6817d6b3226dc14100b6256482dc9009e6488a2c0a4f77d5dd461d71a0b",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/sky-groups.json",
+      "sha256": "4736708a67c73293c81e98b07e4f6460001b5b9595beb71303f5c94b7930cedb",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/sky-spray.webp",
+      "sha256": "3cd86d790d037429c87f934d4900293fce86267e41dcc5b80a6b426a6a17280e",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/source-sky-index.webp",
+      "sha256": "de16fa5b0b8ee0d24c6c426563395b7f35880d6b4eb8a6117346c8b1d566f9ae",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/source-sky.webp",
+      "sha256": "5f933c2c3cd5784ed13ef13e33b0561b2e6e3eb9d0e55e02c3c4c04897e08ad7",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/spray-motion-atlas.webp",
+      "sha256": "2a692d316fc13b78d94c578f0460de42e6e953d60ffc79586aa01d0aab392cb4",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/spray-source.webp",
+      "sha256": "86aca50c6e765551d36c5af030d295656918da49cedb402ec6043f4fb712c3cb",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/spray.webp",
+      "sha256": "a4393301dd2db408f5059f04a65fadc6fdafb80359e06c279bd5e5f1822720eb",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/upper-marks.webp",
+      "sha256": "60c10309ec45b22aa59b220d75d16347b18b131b405eadff500667bd407208eb",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/generated/upper-wave.webp",
+      "sha256": "1e527a277b596786a035c0ab771cd72baa44a457ee8e06ae27c494d9d5e00631",
+      "rights": "third-party trace derivative or supporting data"
+    },
+    {
+      "path": "assets/source/kanagawa-inscription-scan.webp",
+      "sha256": "eeb941d0aa1b1a29942fc55a151df26db5c46d82932b8b76809bf30ca3ff1ab3",
+      "rights": "Met Public Domain scan derivative"
+    },
+    {
+      "path": "assets/source/kanagawa-vector-manifest.json",
+      "sha256": "a10254885b6e3a82a9d4c6c55c3f5c093534fe7b87439f19d5c127bafdb8cfc7",
+      "rights": "provenance metadata"
+    }
+  ]
+}

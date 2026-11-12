@@ -1,0 +1,98 @@
+/* Roles: display title (serif); UI/body (system sans); labels/captions; tabular values.
+   The palette is sampled from the print itself: warm paper, deep indigo ink and
+   wave-blue accents, so the panel reads as the same sheet as the artwork. */
+:root {
+  color-scheme: light;
+  --paper:#e8e2d1; --panel:#efe9d9; --ink:#183848; --muted:#566a6f; --line:#c9c0a9; --accent:#236079;
+  --space-1:.35rem; --space-2:.65rem; --space-3:1rem; --space-4:1.5rem; --edge:clamp(1rem,2vw,2rem);
+  --ui:14px; --small:12px; --title:1.05rem; --panel-width:21rem;
+  font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  font-size:var(--ui); line-height:1.5; font-synthesis:none; color:var(--ink); background:var(--paper);
+}
+* { box-sizing:border-box; }
+body { margin:0; height:100dvh; overflow:hidden; }
+[hidden] { display:none !important; }
+button,select,input { font:inherit; color:inherit; }
+button,select { min-height:44px; padding:.4rem .8rem; border:1px solid var(--line); border-radius:3px; background:transparent; }
+button,summary,select,input[type=checkbox] { cursor:pointer; }
+button:hover,select:hover { border-color:var(--accent); background:#fffdf566; }
+button:disabled { opacity:.5; cursor:wait; }
+button.primary { color:var(--panel); background:var(--ink); border-color:var(--ink); }
+button.primary:hover { background:var(--accent); }
+:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+a { color:inherit; text-underline-offset:.2em; }
+h1,h2,p { margin:0; }
+#workspace { position:relative; display:flex; height:100%; min-height:0; }
+#artwork { position:relative; flex:1; min-width:0; background:#b6c5c3; }
+canvas { position:absolute; inset:0; display:block; width:100%; height:100%; opacity:0; }
+canvas[data-ready] { opacity:1; }
+#fallback { display:block; width:100%; height:100%; object-fit:contain; }
+#loading { position:absolute; inset:0; display:grid; place-content:center; padding:var(--space-3); background:#e8e2d1cc; }
+#failure { position:absolute; bottom:var(--space-3); inset-inline:var(--space-3); max-width:36rem; margin:auto; background:var(--panel); border:1px solid var(--line); padding:var(--space-3); }
+#failure button { margin-top:var(--space-2); }
+
+/* One floating button on the seam opens and closes the panel; nothing else
+   stays on screen when it is closed. */
+#panel-toggle { position:absolute; top:50%; right:calc(var(--panel-width) - 14px); z-index:15; display:grid; place-items:center; width:28px; min-height:28px; padding:0; border:1px solid var(--line); border-radius:50%; background:var(--panel); color:var(--muted); box-shadow:0 2px 8px #1838481f; transform:translateY(-50%); transition:right 180ms ease; }
+#panel-toggle:hover { color:var(--accent); border-color:var(--accent); background:var(--paper); }
+#panel-toggle svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; transition:transform 180ms ease; }
+body.panel-closed #panel-toggle { right:10px; }
+body.panel-closed #panel-toggle svg { transform:rotate(180deg); }
+
+#panel { flex:none; display:flex; flex-direction:column; width:var(--panel-width); min-width:0; overflow:hidden; background:var(--panel); border-left:1px solid var(--line); transition:width 180ms ease; }
+body.panel-closed #panel { width:0; border-left:0; }
+#panel-head { position:relative; display:flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-4) var(--space-1); }
+#panel-title { flex:1; min-width:0; font:500 var(--title)/1.3 Georgia,"Hiragino Mincho ProN","Songti SC",serif; letter-spacing:-.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.head-actions { display:flex; flex:none; gap:2px; margin-inline-end:-.4rem; }
+.icon-slot { position:relative; }
+.icon { display:grid; place-items:center; width:40px; min-height:40px; padding:0; border:0; border-radius:50%; background:transparent; color:var(--muted); text-decoration:none; }
+.icon:hover { color:var(--ink); background:#18384812; }
+.icon svg { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.menu { position:absolute; top:calc(100% + 2px); right:0; z-index:25; display:grid; min-width:9.5rem; padding:.25rem; border:1px solid var(--line); border-radius:3px; background:var(--panel); box-shadow:0 10px 24px #1838481f; }
+.menu button, .menu a { display:flex; align-items:center; min-height:36px; padding:.35rem .6rem; border:0; border-radius:2px; background:transparent; color:inherit; font:inherit; text-align:start; text-decoration:none; white-space:nowrap; }
+.menu button:hover, .menu a:hover { background:#1838480d; }
+.menu button[aria-checked=true] { color:var(--accent); font-weight:600; }
+
+#quick-actions { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-2); padding:var(--space-1) var(--space-4) var(--space-2); }
+#quick-actions button { width:100%; }
+#panel-body { flex:1; min-height:0; overflow:auto; overscroll-behavior:contain; padding:0 var(--space-4); scrollbar-gutter:stable; }
+#panel-foot { flex:none; display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:var(--space-1) var(--space-3); padding:var(--space-3) var(--space-4); border-top:1px solid var(--line); color:var(--muted); font-size:var(--small); }
+.field { display:grid; gap:var(--space-1); margin-block:var(--space-3); }
+.field > span { font-weight:500; }
+.field select { width:100%; min-width:0; }
+.slider { display:grid; grid-template-columns:1fr auto; align-items:center; gap:0 var(--space-2); margin-block:var(--space-2); }
+.slider label { grid-column:1; }
+.slider input { grid-column:1/-1; width:100%; min-width:0; margin:0; height:32px; accent-color:var(--accent); }
+.slider output { grid-column:2; grid-row:1; color:var(--muted); font-variant-numeric:tabular-nums; }
+.check { display:flex; gap:var(--space-2); align-items:center; min-height:44px; }
+.check input { accent-color:var(--accent); width:18px; height:18px; flex-shrink:0; }
+details { border-top:1px solid var(--line); padding-block:var(--space-2); }
+details details { border:0; padding-inline-start:var(--space-2); }
+summary { min-height:44px; align-content:center; font-weight:600; }
+.layers { display:grid; grid-template-columns:1fr 1fr; gap:0 var(--space-2); }
+.layers .check { align-items:flex-start; gap:var(--space-1); min-height:40px; padding-block:.5rem; line-height:1.3; }
+.layers .check input { margin-top:.15em; }
+.layers label { font-size:var(--small); }
+.cloud-row { margin-block:var(--space-2); }
+#feedback { position:fixed; left:var(--space-4); bottom:var(--space-4); z-index:30; max-width:min(32rem,calc(100vw - 2*var(--space-4))); padding:var(--space-2) var(--space-3); border:1px solid var(--line); border-radius:3px; background:var(--panel); font-size:var(--small); }
+#feedback:empty { display:none; }
+#manual-copy { position:fixed; left:var(--space-4); bottom:var(--space-4); z-index:30; width:min(32rem,calc(100vw - 2*var(--space-4))); padding:var(--space-3); border:1px solid var(--line); border-radius:3px; background:var(--panel); font-size:var(--small); }
+#manual-copy input { display:block; width:100%; margin-top:var(--space-2); padding:var(--space-2); }
+noscript p { position:fixed; inset:auto var(--edge) var(--edge); }
+
+@media (max-width:900px) {
+  body { height:auto; overflow:auto; }
+  #workspace { display:block; height:auto; }
+  #artwork { height:clamp(17rem,68vw,65dvh); min-height:0; }
+  #panel-toggle { display:none; }
+  #panel { width:auto; overflow:visible; border-top:1px solid var(--line); transition:none; }
+  #panel-head { padding:var(--edge) var(--edge) var(--space-1); }
+  #quick-actions { padding:var(--space-1) var(--edge) var(--space-2); }
+  #panel-body { flex:none; overflow:visible; padding:0 var(--edge); scrollbar-gutter:auto; }
+  #panel-foot { padding:var(--space-3) var(--edge) var(--edge); }
+  #panel-body .layers { grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); }
+  #feedback, #manual-copy { left:var(--edge); bottom:var(--edge); }
+}
+@media (max-width:370px) { .head-actions { gap:0; } #quick-actions { gap:var(--space-1); } button,select { padding-inline:.55rem; } }
+@media (prefers-reduced-motion:no-preference) { button { transition:background-color 120ms ease; } }
+@media (prefers-reduced-motion:reduce) { #panel { transition:none; } #panel-toggle, #panel-toggle svg { transition:none; } }

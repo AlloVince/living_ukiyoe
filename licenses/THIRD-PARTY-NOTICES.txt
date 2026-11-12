@@ -1,0 +1,14 @@
+Living Ukiyo-e third-party code
+
+Browser runtime:
+- Three.js 0.187.0, MIT, Copyright 2010-2026 three.js authors.
+  Full license: THREE-LICENSE.txt (in the web build), licenses/THREE-MIT.txt (source).
+
+Development only (not delivered in the browser application):
+- esbuild 0.28.2 and its platform binary, MIT. See ESBUILD-MIT.txt.
+- Playwright 1.63.0 / playwright-core 1.63.0, Apache-2.0.
+  See PLAYWRIGHT-APACHE-2.0.txt, PLAYWRIGHT-NOTICE.txt and PLAYWRIGHT-THIRD-PARTY.txt.
+  Installed browser binaries retain their upstream notices in the Playwright browser cache.
+- pngjs 7.0.0, MIT. See PNGJS-MIT.txt.
+
+Art and derived media: see ASSETS.md.

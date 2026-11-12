@@ -1,0 +1,18 @@
+{
+  "work": "Katsushika Hokusai, Under the Wave off Kanagawa (Kanagawa oki nami ura)",
+  "sourcePage": "https://wp270302.wpx.jp/Hokusai/drawing-process.html",
+  "sourceWork": "The Metropolitan Museum of Art, JP2569",
+  "sourceImage": "https://images.metmuseum.org/CRDImages/as/original/DP141042.jpg",
+  "sourceImageSha256": "b410eeec0473c4e63eef12434a5a7c4613401c6e18670718d7727f36a441495c",
+  "vectorCanvas": [
+    2800,
+    1914
+  ],
+  "fillPaths": 31877,
+  "outlineOverlayPaths": 6839,
+  "uniqueFillColors": 4483,
+  "totalPathSegments": 872699,
+  "vectorSvgSha256": "82c419defe0293c8b240dd0aecd0438b39a63dd103df999b246462f063d2fb50",
+  "vectorSvgBytes": 35831320,
+  "licenseNote": "The page identifies the underlying Met work as Public Domain, but does not state a separate explicit license for the generated vector trace. Preserve source attribution and do not represent the trace itself as CC0 without verification."
+}
