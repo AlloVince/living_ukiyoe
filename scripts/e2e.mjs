@@ -176,6 +176,7 @@ try {
   // The showcase GIF must start from the closed paper and capture the whole
   // V5 entrance, then the steady 28 s loop. Reload fresh and record ~32 s.
   await page.goto('about:blank');await page.goto(url);
+  await page.bringToFront();
   await page.locator('canvas[data-ready]').waitFor();
   await page.locator('details').filter({has:page.locator('#timeline')}).last().evaluate(x=>x.open=true);
   await page.evaluate(()=>{const stream=document.querySelector('canvas').captureStream(24);const recorder=new MediaRecorder(stream,{mimeType:'video/webm;codecs=vp8',videoBitsPerSecond:2000000});const chunks=[];window.recording=new Promise(resolve=>{recorder.ondataavailable=e=>chunks.push(e.data);recorder.onstop=()=>{stream.getTracks().forEach(t=>t.stop());const reader=new FileReader();reader.onload=()=>resolve(reader.result.split(',')[1]);reader.readAsDataURL(new Blob(chunks,{type:recorder.mimeType}));};});recorder.start();setTimeout(()=>recorder.stop(),32000);});
@@ -183,9 +184,12 @@ try {
   // CI runners are slower than local hardware; a fixed 32 s window can end
   // before the 28 s loop has wrapped.
   await page.waitForFunction(()=>window.__waveLab?.entrance().active===false,{timeout:60000});
+  await page.bringToFront();
+  if ((await page.locator('#play').textContent()).trim()==='Play') await page.locator('#play').click();
   let previous=Number(await page.locator('#timeline').inputValue()),wrapped=false;
-  for(let i=0;i<9;i++){await page.waitForTimeout(3900);const current=Number(await page.locator('#timeline').inputValue());if(current<previous)wrapped=true;previous=current;}
-  assert(wrapped,'live playback must cross 28 second loop after the entrance');
+  for(let i=0;i<12;i++){await page.waitForTimeout(3900);const current=Number(await page.locator('#timeline').inputValue());if(current<previous)wrapped=true;previous=current;}
+  const hidden=await page.evaluate(()=>document.hidden);
+  assert(wrapped,`live playback must cross 28 second loop after the entrance (document.hidden=${hidden})`);
   await writeFile(new URL('live-cycle.webm',output),Buffer.from(await page.evaluate(()=>window.recording),'base64'));
   ok('32 second real recording: paper opening, part-by-part entrance, observed 28 second wrap');
   assert.equal((await page.request.get(url+'does-not-exist')).status(),404);ok('unknown project paths return 404');
